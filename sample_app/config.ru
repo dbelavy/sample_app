@@ -2,4 +2,7 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run SampleApp::Application
-set :database, ENV['DATABASE_URL'] || 'postgres://localhost/sample_app'
+
+
+#  The next bit of code caused errors!
+#set :database, ENV['DATABASE_URL'] || 'postgres://localhost/sample_app'
