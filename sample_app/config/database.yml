@@ -22,6 +22,6 @@
   
 development:
   adapter: postgresql
-  database: db/demo_app
+  database: sample_app
   host: localhost
   
