@@ -22,6 +22,19 @@
   
 development:
   adapter: postgresql
-  database: sample_app
+  database: sample_app_dev
   host: localhost
   
+
+test:
+  adapter: postgresql
+  database: sample_app_test
+  host: localhost
+
+
+production:
+  adapter: postgresql
+  database: sample_app_prod
+  host: localhost
+
+
