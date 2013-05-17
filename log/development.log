@@ -1,0 +1,313 @@
+  [1m[36m (59.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (11.1ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'schema_migrations'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36m (17.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-05-11 16:35:26 +1000
+Served asset /rails.png - 304 Not Modified (68ms)
+
+
+Started GET "/greeting.html" for 127.0.0.1 at 2013-05-11 16:35:33 +1000
+
+ActionController::RoutingError (No route matches [GET] "/greeting.html"):
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Volumes/Partition_2/david/.rvm/gems/ruby-1.9.3-p392@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (15.8ms)
+
+
+Started GET "/greeting" for 127.0.0.1 at 2013-05-11 16:35:36 +1000
+
+ActionController::RoutingError (No route matches [GET] "/greeting"):
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Volumes/Partition_2/david/.rvm/gems/ruby-1.9.3-p392@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-05-11 19:55:36 +1000
+Served asset /rails.png - 304 Not Modified (30ms)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2013-05-11 19:55:41 +1000
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (37.4ms)
+Compiled static_pages.css  (238ms)  (pid 7157)
+Compiled application.css  (352ms)  (pid 7157)
+Compiled jquery.js  (3ms)  (pid 7157)
+Compiled jquery_ujs.js  (0ms)  (pid 7157)
+Compiled static_pages.js  (458ms)  (pid 7157)
+Compiled application.js  (1732ms)  (pid 7157)
+Completed 200 OK in 2720ms (Views: 2719.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-05-11 19:55:44 +1000
+Served asset /static_pages.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-11 19:55:44 +1000
+Served asset /application.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-11 19:55:44 +1000
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-11 19:55:44 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-05-11 19:55:44 +1000
+Served asset /static_pages.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-11 19:55:44 +1000
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/static_pages/help" for 127.0.0.1 at 2013-05-11 21:30:44 +1000
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 300ms (Views: 299.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-05-11 21:30:46 +1000
+Served asset /static_pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-11 21:30:46 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-11 21:30:46 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-05-11 21:30:46 +1000
+Served asset /static_pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-11 21:30:46 +1000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-11 21:30:46 +1000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-05-12 21:12:11 +1000
+Served asset /rails.png - 304 Not Modified (1ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at 2013-05-12 21:12:14 +1000
+PGError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+: SHOW search_path
+ActiveRecord::StatementInvalid: PGError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+: SHOW search_path:             SELECT COUNT(*)
+            FROM pg_class c
+            LEFT JOIN pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind in ('v','r')
+            AND c.relname = $1
+            AND n.nspname = ANY (current_schemas(false))
+
+Processing by Rails::InfoController#properties as */*
+  Rendered inline template (0.9ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-05-12 21:12:27 +1000
+Served asset /rails.png - 304 Not Modified (0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-05-12 21:12:34 +1000
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Volumes/Partition_2/david/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Volumes/Partition_2/david/.rvm/gems/ruby-1.9.3-p392@rails3tutorial2ndEd/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (31.1ms)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 67ms (Views: 66.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Served asset /static_pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Served asset /static_pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-12 21:13:03 +1000
+Served asset /application.css - 304 Not Modified (0ms)
+  [1m[36m (12.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (7.7ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'schema_migrations'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36m (44.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (47.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('0')[0m
+  [1m[35m (0.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.7ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2013-05-18 07:33:19 +1000
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 165ms (Views: 164.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-18 07:33:20 +1000
+Served asset /application.css - 200 OK (77ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:20 +1000
+Served asset /jquery.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:20 +1000
+Served asset /application.js - 200 OK (26ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-05-18 07:33:20 +1000
+Served asset /static_pages.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:20 +1000
+Served asset /static_pages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:20 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/static_pages/about" for 127.0.0.1 at 2013-05-18 07:33:27 +1000
+Processing by StaticPagesController#about as HTML
+  Rendered static_pages/about.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:28 +1000
+Served asset /static_pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:28 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:28 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-05-18 07:33:28 +1000
+Served asset /static_pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/static_pages/help" for 127.0.0.1 at 2013-05-18 07:33:39 +1000
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:39 +1000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:39 +1000
+Served asset /static_pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-18 07:33:39 +1000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2013-05-18 07:33:39 +1000
+Served asset /static_pages.css - 304 Not Modified (0ms)
